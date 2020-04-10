@@ -1980,7 +1980,7 @@ static char ort_load_config_from_model_env_var_disabled[] = "ORT_LOAD_CONFIG_FRO
 TEST(InferenceSessionTests, LoadModelWithValidOrtConfigJson) {
   // Part 1 - Load config from model feature enabled
 #ifdef _WIN32
-  _putenv(ort_load_config_from_model_env_var_enabled);
+  (void)_putenv(ort_load_config_from_model_env_var_enabled);
 #else
   putenv(ort_load_config_from_model_env_var_enabled);
 #endif
@@ -2018,7 +2018,7 @@ TEST(InferenceSessionTests, LoadModelWithValidOrtConfigJson) {
 
   // Part 2 - Load config from model feature disabled
 #ifdef _WIN32
-  _putenv(ort_load_config_from_model_env_var_disabled);
+  (void)_putenv(ort_load_config_from_model_env_var_disabled);
 #else
   putenv(ort_load_config_from_model_env_var_disabled);
 #endif
@@ -2046,7 +2046,7 @@ TEST(InferenceSessionTests, LoadModelWithValidOrtConfigJson) {
 TEST(InferenceSessionTests, LoadModelWithInValidOrtConfigJson) {
   // Part 1 - Load config from model feature enabled
 #ifdef _WIN32
-  _putenv(ort_load_config_from_model_env_var_enabled);
+  (void)_putenv(ort_load_config_from_model_env_var_enabled);
 #else
   putenv(ort_load_config_from_model_env_var_enabled);
 #endif
@@ -2066,7 +2066,7 @@ TEST(InferenceSessionTests, LoadModelWithInValidOrtConfigJson) {
   // Part 2 - Load config from model feature disabled
   // The invalid/improperly formed config json in the model should not come into the picture here
 #ifdef _WIN32
-  _putenv(ort_load_config_from_model_env_var_disabled);
+  (void)_putenv(ort_load_config_from_model_env_var_disabled);
 #else
   putenv(ort_load_config_from_model_env_var_disabled);
 #endif
@@ -2093,7 +2093,7 @@ TEST(InferenceSessionTests, LoadModelWithInValidOrtConfigJson) {
 TEST(InferenceSessionTests, LoadModelWithNoOrtConfigJson) {
   // Part 1 - Load config from model feature enabled
 #ifdef _WIN32
-  _putenv(ort_load_config_from_model_env_var_enabled);
+  (void)_putenv(ort_load_config_from_model_env_var_enabled);
 #else
   putenv(ort_load_config_from_model_env_var_enabled);
 #endif
@@ -2120,7 +2120,7 @@ TEST(InferenceSessionTests, LoadModelWithNoOrtConfigJson) {
   // Part 2 - Load config from model feature disabled
   // The missing config json should not come into the picture
 #ifdef _WIN32
-  _putenv(ort_load_config_from_model_env_var_disabled);
+  (void)_putenv(ort_load_config_from_model_env_var_disabled);
 #else
   putenv(ort_load_config_from_model_env_var_disabled);
 #endif
@@ -2141,7 +2141,7 @@ TEST(InferenceSessionTests, LoadModelWithEnvVarSetToUnsupportedVal) {
   // "10" is unsupported for ORT_LOAD_CONFIG_FROM_MODEL
   char env_var_value_set_to_unsupported_val[] = "ORT_LOAD_CONFIG_FROM_MODEL=10";
 #ifdef _WIN32
-  _putenv(env_var_value_set_to_unsupported_val);
+  (void)_putenv(env_var_value_set_to_unsupported_val);
 #else
   putenv(env_var_value_set_to_unsupported_val);
 #endif
@@ -2160,7 +2160,7 @@ TEST(InferenceSessionTests, LoadModelWithEnvVarSetToUnsupportedVal) {
 
   // Disable the feature before exiting the test as this process is likely to be used for running other tests
 #ifdef _WIN32
-  _putenv(ort_load_config_from_model_env_var_disabled);
+  (void)_putenv(ort_load_config_from_model_env_var_disabled);
 #else
   putenv(ort_load_config_from_model_env_var_disabled);
 #endif

@@ -2,6 +2,10 @@
 // Licensed under the MIT License.
 
 #include "onnxruntime_config.h"
+#if defined(_MSC_VER)
+//TODO: fix the warning
+#pragma warning(disable : 28020)
+#endif
 //Ignore a wired warning in gcc 7.4.0. The latest gcc doesn't generate this warning
 #ifdef __GNUC__
 #ifdef HAS_MAYBE_UNINITIALIZED
